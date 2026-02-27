@@ -1,27 +1,28 @@
 import pytest
-from operacoes import raiz_quadrada, calcular_media
+import operacoes as o
 
-class TesteOperacoes():
-    def test_raiz_quadrada_numero_negativo(self):
-        with pytest.raises(ValueError):
-            raiz_quadrada(-4)
-    
-    def test_raiz_quadrada_valores_inteiros(self):
-        assert raiz_quadrada(4) == 2
+def test_raiz():
+    assert o.raiz_quadrada(16)==4
 
 
-    def test_raiz_quadrada_valores_float(self):
-        resultado = raiz_quadrada(7.5)
-        assert resultado == pytest.approx(2.7386127875258306)
+def test_raiz_negativa():
+    with pytest.raises(ValueError):
+        o.raiz_quadrada(-2)
 
 
-    def test_calcular_media_inteiros(self):
-        assert calcular_media([2, 4, 6]) == 4
+def test_calcular_media():
+    assert o.calcular_media([0.1,0.2,0.3,0.4,0.5])== pytest.approx(0.3)
 
-    def test_calcular_media_floats(self):
-        resultado = calcular_media([0.1, 0.2, 0.3])
-        assert resultado == pytest.approx(0.2)
-    
-    def test_calcular_media_lista_vazia(self):
-        with pytest.raises(ValueError):
-            calcular_media([])
+
+def test_calcular_media_vazia():
+    with pytest.raises(ValueError):
+        o.calcular_media([])
+
+
+def test_false():
+    assert o.subtrair(2,3) is False
+
+
+def test_true():
+    assert o.subtrair(3,2) is True
+
