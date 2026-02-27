@@ -1,18 +1,19 @@
-import math
-import pytest
-
-def raiz_quadrada(numero):
-    if numero < 0:
-        raise ValueError("Número negativo")
+def raiz_quadrada(a):
+    if a<0:
+        raise ValueError("Operação inválida: não é possível calcular raiz quadrada com números negativos.")
     else:
-        return math.sqrt(numero)
-
-def calcular_media(lista_numeros):
-    count = len(lista_numeros)
-
-    if count <= 0:
-        raise ValueError("Lista vazia")
+        raiz= a**0.5
+        return raiz
+    
+def calcular_media(a:list):
+    if len(a) == 0:
+        raise ValueError("Operação inválida: não é possível calcular a média de uma lista vazia.")
     else:
-        return sum(lista_numeros) / count
-
-
+        media = sum(a)/len(a)
+        return media
+    
+def subtrair(a,b):
+    subtracao = a-b
+    if subtracao > 0:
+        return True
+    return False
